@@ -1,0 +1,37 @@
+{
+  "name": "crudclinic",
+  "version": "1.0.0",
+  "description": "Agenda Médica Inteligente - Sistema de gestión de citas médicas",
+  "main": "server/index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "server": "nodemon server/index.js",
+    "start": "concurrently \"npm run server\" \"npm run dev\"",
+    "db:setup": "node scripts/setup-database.js",
+    "db:seed": "node scripts/seed-data.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["clinic", "medical", "appointments", "crud", "express", "postgresql"],
+  "author": "Juan Velez",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^1.4.5-lts.1",
+    "pg": "^8.11.3",
+    "xlsx": "^0.18.5",
+    "csv-parser": "^3.0.0"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0",
+    "concurrently": "^8.2.2",
+    "nodemon": "^3.0.2"
+  }
+}
