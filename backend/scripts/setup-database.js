@@ -7,14 +7,13 @@ async function setupDatabase() {
 
         // Create tables
         await db.query(`
-            DROP TABLE IF EXISTS citas CASCADE;
-            DROP TABLE IF EXISTS pacientes CASCADE;
+            DROP TABLE IF EXISTS Cliente CASCADE;
         `);
 
 
-        // Create pacientes table
+        // Create clientes table
         await db.query(`
-            CREATE TABLE clientes (
+            CREATE TABLE Cliente (
                 id SERIAL PRIMARY KEY,
                 nombre VARCHAR(100) NOT NULL,
                 correo VARCHAR(100) NOT NULL UNIQUE,
@@ -31,26 +30,6 @@ async function setupDatabase() {
         console.log('📝 Insertando datos iniciales...');
 
 
-
-        // Create admin user
-        const hashedPassword = await bcrypt.hash('admin123', 10);
-        await db.query(
-            `INSERT INTO usuarios (username, email, password_hash, rol) 
-             VALUES ($1, $2, $3, $4) ON CONFLICT (username) DO NOTHING`,
-            ['admin', 'admin@crudclinic.com', hashedPassword, 'admin']
-        );
-
-        console.log('✅ Datos iniciales insertados exitosamente');
-
-        // Create indexes for better performance
-        await db.query(`
-            CREATE INDEX IF NOT EXISTS idx_citas_fecha ON citas(fecha_cita);
-            CREATE INDEX IF NOT EXISTS idx_citas_paciente ON citas(paciente_id);
-            CREATE INDEX IF NOT EXISTS idx_citas_medico ON citas(medico_id);
-            CREATE INDEX IF NOT EXISTS idx_pacientes_email ON pacientes(email);
-            CREATE INDEX IF NOT EXISTS idx_medicos_email ON medicos(email);
-            CREATE INDEX IF NOT EXISTS idx_medicos_especialidad ON medicos(especialidad_id);
-        `);
 
         console.log('✅ Índices creados exitosamente');
 

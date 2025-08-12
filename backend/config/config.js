@@ -2,7 +2,7 @@
 export const config = {
     // Server configuration
     server: {
-        port: 4003,
+        port: 4004,
         corsOrigin: 'http://localhost:5173',
         sessionSecret: 'crudclinic_session_secret_2024',
         jwtSecret: 'crudclinic_jwt_secret_2024',

@@ -11,10 +11,6 @@ import { config } from './config/config.js';
 // Import routes
 import authRoutes from './routes/auth.js';
 import pacientesRoutes from './routes/pacientes.js';
-import medicosRoutes from './routes/medicos.js';
-import citasRoutes from './routes/citas.js';
-import especialidadesRoutes from './routes/especialidades.js';
-import metodosPagoRoutes from './routes/metodos-pago.js';
 import uploadRoutes from './routes/upload.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -49,11 +45,7 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // API Routes
 app.use('/api/auth', authRoutes);
-app.use('/api/pacientes', pacientesRoutes);
-app.use('/api/medicos', medicosRoutes);
-app.use('/api/citas', citasRoutes);
-app.use('/api/especialidades', especialidadesRoutes);
-app.use('/api/metodos-pago', metodosPagoRoutes);
+app.use('/api/clientes', pacientesRoutes);
 app.use('/api/upload', uploadRoutes);
 
 // Health check endpoint

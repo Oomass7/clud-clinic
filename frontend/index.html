@@ -105,7 +105,7 @@
                                     <th>fecha y hora</th>
                                 </tr>
                             </thead>
-                            <tbody id="proximasCitasTable">
+                            <tbody id="transacciónTable">
                                 <tr><td colspan="5" class="text-center">Cargando...</td></tr>
                             </tbody>
                         </table>
@@ -130,10 +130,8 @@
                                     <th>Nombre</th>
                                     <th>Email</th>
                                     <th>Teléfono</th>
-                                    <th>Fecha Nac.</th>
-                                    <th>Género</th>
-                                    <th>Estado</th>
-                                    <th>Acciones</th>
+                                    <th>dirección</th>
+                                    <th>número identificación</th>
                                 </tr>
                             </thead>
                             <tbody id="clientesTable">
@@ -185,7 +183,7 @@
     <!-- Modals -->
 
     <!-- Paciente Modal -->
-    <div class="modal fade" id="pacienteModal" tabindex="-1">
+    <div class="modal fade" id="clienteModal" tabindex="-1">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
@@ -194,7 +192,7 @@
                 </div>
                 <div class="modal-body">
                     <form id="clienteform">
-                        <input type="hidden" id="pacienteId">
+                        <input type="hidden" id="clienteid">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="mb-3">
@@ -223,27 +221,21 @@
                             <textarea class="form-control" id="clienteDireccion" rows="2"></textarea>
                         </div>
                         <div class="mb-3">
-                            <label for="clienteDocumento" class="form-label">Número de Identidad</label>
+                            <label for="clienteDocumento" class="form-label">Número de identificación</label>
                             <input type="text" class="form-control" id="clienteDocumento">
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary" id="savePacienteBtn">
+                    <button type="button" class="btn btn-primary" id="saveclienteBtn">
                         <i class="fas fa-save"></i> Guardar
                     </button>
                 </div>
             </div>
         </div>
     </div>
-                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label for="medicoLicencia" class="form-label">Licencia Médica</label>
-                
+
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     

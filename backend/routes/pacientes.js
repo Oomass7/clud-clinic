@@ -7,11 +7,11 @@ const router = express.Router();
 router.get('/', async (req, res) => {
     try {
         const result = await db.query(
-            'SELECT * FROM pacientes ORDER BY created_at DESC'
+            'SELECT * FROMclientes ORDER BY created_at DESC'
         );
         res.json(result.rows);
     } catch (error) {
-        console.error('Error obteniendo pacientes:', error);
+        console.error('Error obteniendo clientes:', error);
         res.status(500).json({
             message: 'Error interno del servidor'
         });
@@ -21,10 +21,10 @@ router.get('/', async (req, res) => {
 // Get patients count
 router.get('/count', async (req, res) => {
     try {
-        const result = await db.query('SELECT COUNT(*) FROM pacientes');
+        const result = await db.query('SELECT COUNT(*) FROM clientes');
         res.json({ count: parseInt(result.rows[0].count) });
     } catch (error) {
-        console.error('Error contando pacientes:', error);
+        console.error('Error contando clientes:', error);
         res.status(500).json({
             message: 'Error interno del servidor'
         });
@@ -36,19 +36,19 @@ router.get('/:id', async (req, res) => {
     try {
         const { id } = req.params;
         const result = await db.query(
-            'SELECT * FROM pacientes WHERE id = $1',
+            'SELECT * FROM clientes WHERE id = $1',
             [id]
         );
 
         if (result.rows.length === 0) {
             return res.status(404).json({
-                message: 'Paciente no encontrado'
+                message: 'cliente no encontrado'
             });
         }
 
         res.json(result.rows[0]);
     } catch (error) {
-        console.error('Error obteniendo paciente:', error);
+        console.error('Error obteniendo cliente:', error);
         res.status(500).json({
             message: 'Error interno del servidor'
         });
@@ -60,29 +60,26 @@ router.post('/', async (req, res) => {
     try {
         const {
             nombre,
-            apellido,
             email,
             telefono,
-            fecha_nacimiento,
-            genero,
             direccion,
-            documento_identidad
+            número_identificación
         } = req.body;
 
         const result = await db.query(
-            `INSERT INTO pacientes 
-            (nombre, apellido, email, telefono, fecha_nacimiento, genero, direccion, documento_identidad, estado)
+            `INSERT INTO clientes 
+            (nombre, email, telefono, direccion, número_identificación)
             VALUES ($1, $2, $3, $4, $5, $6, $7, $8, true)
             RETURNING *`,
-            [nombre, apellido, email, telefono, fecha_nacimiento, genero, direccion, documento_identidad]
+            [nombre, email, telefono, direccion, número_identificación]
         );
 
         res.status(201).json({
-            message: 'Paciente creado exitosamente',
+            message: 'cliente creado exitosamente',
             paciente: result.rows[0]
         });
     } catch (error) {
-        console.error('Error creando paciente:', error);
+        console.error('Error creando cliente:', error);
         res.status(500).json({
             message: 'Error interno del servidor'
         });
@@ -95,14 +92,10 @@ router.put('/:id', async (req, res) => {
         const { id } = req.params;
         const {
             nombre,
-            apellido,
             email,
             telefono,
-            fecha_nacimiento,
-            genero,
             direccion,
-            documento_identidad,
-            estado
+            número_identificación
         } = req.body;
 
         const result = await db.query(
@@ -112,7 +105,7 @@ router.put('/:id', async (req, res) => {
                 documento_identidad = $8, estado = $9
             WHERE id = $10
             RETURNING *`,
-            [nombre, apellido, email, telefono, fecha_nacimiento, genero, direccion, documento_identidad, estado, id]
+            [nombre, email, telefono, direccion, número_identificación, id]
         );
 
         if (result.rows.length === 0) {
@@ -138,21 +131,21 @@ router.delete('/:id', async (req, res) => {
     try {
         const { id } = req.params;
         const result = await db.query(
-            'DELETE FROM pacientes WHERE id = $1 RETURNING *',
+            'DELETE FROM clientes WHERE id = $1 RETURNING *',
             [id]
         );
 
         if (result.rows.length === 0) {
             return res.status(404).json({
-                message: 'Paciente no encontrado'
+                message: 'cliente no encontrado'
             });
         }
 
         res.json({
-            message: 'Paciente eliminado exitosamente'
+            message: 'cliente eliminado exitosamente'
         });
     } catch (error) {
-        console.error('Error eliminando paciente:', error);
+        console.error('Error eliminando cliente:', error);
         res.status(500).json({
             message: 'Error interno del servidor'
         });

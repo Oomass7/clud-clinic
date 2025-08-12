@@ -38,11 +38,9 @@ class CrudClinicApp {
         });
 
         // Modal save buttons
-        document.getElementById('saveCitaBtn').addEventListener('click', () => this.saveCita());
-        document.getElementById('savePacienteBtn').addEventListener('click', () => this.savePaciente());
-        document.getElementById('saveMedicoBtn').addEventListener('click', () => this.saveMedico());
-        document.getElementById('saveEspecialidadBtn').addEventListener('click', () => this.saveEspecialidad());
-
+    
+        document.getElementById('saveclienteBtn').addEventListener('click', () => this.savecliente());
+        
         // Upload forms
         document.getElementById('csvUploadForm').addEventListener('submit', (e) => {
             e.preventDefault();

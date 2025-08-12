@@ -73,64 +73,32 @@ router.post('/csv', upload.single('file'), async (req, res) => {
                     for (const row of results) {
                         try {
                             switch (type) {
-                                case 'pacientes':
+                                case 'Clientes':
                                     await db.query(
-                                        `INSERT INTO pacientes (nombre, apellido, email, telefono, fecha_nacimiento, genero, direccion, documento_identidad, estado)
+                                        `INSERT INTO clientes (nombre, email, telefono, direccion, número_identificación)
                                          VALUES ($1, $2, $3, $4, $5, $6, $7, $8, true)`,
-                                        [row.nombre, row.apellido, row.email, row.telefono, row.fecha_nacimiento, row.genero, row.direccion, row.documento_identidad]
+                                        [row.nombre, row.email, row.telefono,  row.direccion, row.número_identificación]
                                     );
                                     break;
 
-                                case 'medicos':
-                                    // First, get or create specialty
-                                    let especialidadId = null;
-                                    if (row.especialidad) {
-                                        const especialidadResult = await db.query(
-                                            'SELECT id FROM especialidades WHERE nombre ILIKE $1',
-                                            [row.especialidad]
-                                        );
-                                        
-                                        if (especialidadResult.rows.length === 0) {
-                                            const newEspecialidad = await db.query(
-                                                'INSERT INTO especialidades (nombre) VALUES ($1) RETURNING id',
-                                                [row.especialidad]
-                                            );
-                                            especialidadId = newEspecialidad.rows[0].id;
-                                        } else {
-                                            especialidadId = especialidadResult.rows[0].id;
-                                        }
-                                    }
+                                case 'Factura':
 
                                     await db.query(
-                                        `INSERT INTO medicos (nombre, apellido, email, telefono, especialidad_id, licencia_medica, estado)
-                                         VALUES ($1, $2, $3, $4, $5, $6, true)`,
-                                        [row.nombre, row.apellido, row.email, row.telefono, especialidadId, row.licencia_medica]
+                                        `INSERT INTO Factura (id_factura, monto_facturado, monto_pagado, periodo_facturación)
+                                         VALUES ($1, $2, $3, $4, $5)`,
+                                        [row.id_factura, row.monto_facturado, row.monto_pagado, row.periodo_facturación]
                                     );
                                     break;
 
-                                case 'citas':
-                                    // Get patient and doctor IDs
-                                    const pacienteResult = await db.query(
-                                        'SELECT id FROM pacientes WHERE email = $1',
-                                        [row.paciente_email]
-                                    );
-                                    
-                                    const medicoResult = await db.query(
-                                        'SELECT id FROM medicos WHERE email = $1',
-                                        [row.medico_email]
-                                    );
+                                
+                                case 'Transacción':
 
-                                    if (pacienteResult.rows.length > 0 && medicoResult.rows.length > 0) {
-                                        await db.query(
-                                            `INSERT INTO citas (paciente_id, medico_id, fecha_cita, duracion_minutos, motivo_consulta, monto, estado)
-                                             VALUES ($1, $2, $3, $4, $5, $6, 'programada')`,
-                                            [pacienteResult.rows[0].id, medicoResult.rows[0].id, row.fecha_cita, row.duracion_minutos || 30, row.motivo_consulta, row.monto]
-                                        );
-                                    } else {
-                                        errors.push(`Cita: Paciente o médico no encontrado para ${row.paciente_email} - ${row.medico_email}`);
-                                        continue;
-                                    }
-                                    break;
+                                    await db.query(
+                                        `INSERT INTO Transacción (id_transación, plataforma, monto, estado, fecha_hora)
+                                         VALUES ($1, $2, $3, $4, $5)`,
+                                        [row.id_transacción, row.plataforma, row.monto, row.estado, row.fecha_hora]
+                                    );
+                                    break;   
 
                                 default:
                                     errors.push(`Tipo de datos no soportado: ${type}`);
