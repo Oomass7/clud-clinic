@@ -12,8 +12,8 @@ export const config = {
     // Database configuration (Supabase)
     database: {
         host: 'aws-0-us-east-2.pooler.supabase.com',
-        user: 'postgres.cnlzmrelgidzejwoddez',
-        password: 'TThAqaiCOvAeW7Iu',
+        user: 'postgres.civcdniazjqwjvmyyghg',
+        password: '9rxTs4apiSgnlRXA',
         database: 'postgres',
         port: 6543,
         ssl: { rejectUnauthorized: false }

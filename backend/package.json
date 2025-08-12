@@ -14,7 +14,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": ["clinic", "medical", "appointments", "crud", "express", "postgresql"],
-  "author": "Juan Velez",
+  "author": "Mariana Carmona",
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",

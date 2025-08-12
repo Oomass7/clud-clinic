@@ -17,6 +17,6 @@
     "concurrently": "^8.2.2"
   },
   "keywords": ["medical", "appointments", "crud", "express", "postgresql", "vite"],
-  "author": "Juan Velez",
+  "author": "Mariana Carmona",
   "license": "MIT"
 }
