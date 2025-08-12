@@ -78,10 +78,9 @@ class CrudClinicApp {
         // Update page title
         const titles = {
             dashboard: 'Dashboard',
-            citas: 'Gestión de Citas',
-            pacientes: 'Gestión de Pacientes',
-            medicos: 'Gestión de Médicos',
-            especialidades: 'Gestión de Especialidades',
+            Factura: 'Factura',
+            clientes: 'clientes',
+            Transacción: 'Transacción',
             upload: 'Carga de Datos'
         };
         document.getElementById('pageTitle').textContent = titles[view] || 'Dashboard';
@@ -99,20 +98,13 @@ class CrudClinicApp {
             case 'dashboard':
                 await this.loadDashboard();
                 break;
-            case 'citas':
+            case 'Factura':
                 await this.loadCitas();
                 break;
-            case 'pacientes':
+            case 'Clientes':
                 await this.loadPacientes();
                 break;
-            case 'medicos':
-                await this.loadMedicos();
-                break;
-            case 'especialidades':
-                await this.loadEspecialidades();
-                break;
-        }
-    }
+    }}
 
     async loadDashboard() {
         try {
