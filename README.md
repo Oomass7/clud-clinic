@@ -1,199 +1,184 @@
-# 🏥 CrudClinic - Agenda Médica Inteligente
+# 🏥 CrudClinic - Medical Appointment Management System
 
-Una aplicación web completa para la gestión de citas médicas, desarrollada con tecnologías modernas y siguiendo las mejores prácticas de desarrollo.
+A complete web application for medical appointment management, developed with modern technologies and following best development practices.
 
-## 📋 Descripción del Proyecto
+## 📋 Project Description
 
-CrudClinic es un sistema integral de gestión médica que permite administrar citas, pacientes, médicos y especialidades de manera eficiente. El proyecto incluye normalización de datos, carga masiva desde archivos y consultas avanzadas.
+CrudClinic is an integral medical management system that allows efficient administration of appointments, patients, doctors, and specialties. The project includes data normalization, bulk data loading from files, and advanced queries.
 
-## ✨ Características Principales
+## ✨ Main Features
 
-### 🔐 Autenticación y Seguridad
-- **Login seguro** con JWT y sesiones
-- **Roles de usuario** (admin, médico, recepcionista, usuario)
-- **Encriptación de contraseñas** con bcrypt
-- **Control de acceso** por rutas
+### 🔐 Authentication and Security
+- **Secure login** with JWT and sessions
+- **User roles** (admin, doctor, receptionist, user)
+- **Password encryption** with bcrypt
+- **Route access control**
 
-### 📊 Gestión Completa de Datos
-- **CRUD completo** para:
-  - 👥 Pacientes
-  - 👨‍⚕️ Médicos
-  - 📅 Citas
-  - 🏥 Especialidades
-- **Dashboard interactivo** con estadísticas en tiempo real
-- **Filtros avanzados** por médico, fecha, especialidad
-- **Búsqueda y paginación**
+### 📊 Complete Data Management
+- **Full CRUD** for:
+  - 👥 Patients
+  - 👨‍⚕️ Doctors
+  - 📅 Appointments
+  - 🏥 Specialties
+- **Interactive dashboard** with real-time statistics
+- **Advanced filters** by doctor, date, specialty
+- **Search and pagination**
 
-### 📁 Carga Masiva de Datos
-- **Soporte para CSV** y **Excel** (.xlsx, .xls)
-- **Validación automática** de datos
-- **Manejo de errores** robusto
-- **Procesamiento asíncrono**
+### 📁 Bulk Data Loading
+- **CSV file support**
+- **Automatic data validation**
+- **Robust error handling**
+- **Asynchronous processing**
 
-### 🎨 Interfaz Moderna
-- **Diseño responsive** con Bootstrap 5
-- **SPA (Single Page Application)** con JavaScript vanilla
-- **Navegación intuitiva** con sidebar
-- **Modales para formularios**
-- **Feedback visual** con alertas
+### 🎨 Modern Interface
+- **Responsive design** with Bootstrap 5
+- **SPA (Single Page Application)** with vanilla JavaScript
+- **Intuitive navigation** with sidebar
+- **Modals for forms**
+- **Visual feedback** with alerts
 
-## 🛠️ Stack Tecnológico
+## 🛠️ Technology Stack
 
 ### Backend
-- **Node.js** - Runtime de JavaScript
-- **Express.js** - Framework web
-- **PostgreSQL** - Base de datos relacional
-- **JWT** - Autenticación
-- **Multer** - Manejo de archivos
-- **bcryptjs** - Encriptación
+- **Node.js** - JavaScript runtime
+- **Express.js** - Web framework
+- **PostgreSQL** - Relational database
+- **JWT** - Authentication
+- **Multer** - File handling
+- **bcryptjs** - Encryption
 
 ### Frontend
-- **HTML5** - Estructura semántica
-- **CSS3** - Estilos y animaciones
-- **JavaScript ES6+** - Lógica de aplicación
-- **Bootstrap 5** - Framework CSS
-- **Font Awesome** - Iconografía
+- **HTML5** - Semantic structure
+- **CSS3** - Styles and animations
+- **JavaScript ES6+** - Application logic
+- **Bootstrap 5** - CSS framework
+- **Font Awesome** - Iconography
 
-### Herramientas de Desarrollo
-- **Vite** - Build tool y dev server
-- **Nodemon** - Auto-reload del servidor
-- **Dotenv** - Variables de entorno
+### Development Tools
+- **Vite** - Build tool and dev server
+- **Nodemon** - Server auto-reload
 
-## 🚀 Instalación y Configuración
+## 🚀 Installation and Configuration
 
-### Prerrequisitos
-- Node.js (v16 o superior)
-- PostgreSQL
-- npm o yarn
+### Prerequisites
+- Node.js (v16 or higher)
+- PostgreSQL (or Supabase)
+- npm or yarn
 
-### 1. Clonar el repositorio
+### 1. Clone the repository
 ```bash
-git clone <url-del-repositorio>
-cd crudclinic
+git clone <repository-url>
+cd API_Connection
 ```
 
-### 2. Instalar dependencias
+### 2. Install all dependencies
 ```bash
-npm install
+npm run install:all
 ```
 
-### 3. Configurar variables de entorno
-Crear archivo `.env` en la raíz del proyecto:
-```env
-DB_HOST=tu_host
-DB_USER=tu_usuario
-DB_PASSWORD=tu_password
-DB_NAME=tu_base_de_datos
-DB_PORT=5432
-DB_SSL=false
-JWT_SECRET=tu_jwt_secret_super_seguro
-JWT_EXPIRES_IN=24h
-SESSION_SECRET=tu_session_secret
-UPLOAD_PATH=./uploads
-MAX_FILE_SIZE=10485760
-CORS_ORIGIN=http://localhost:5173
-PORT=4000
-```
-
-### 4. Configurar la base de datos
+### 3. Configure the database
 ```bash
 npm run db:setup
 ```
 
-### 5. Iniciar la aplicación
+### 4. Load sample data
 ```bash
-# Desarrollo (frontend + backend)
-npm start
-
-# Solo frontend
-npm run dev
-
-# Solo backend
-npm run server
+npm run db:seed
 ```
 
-## 📱 Uso de la Aplicación
+### 5. Start the application
+```bash
+# Development (frontend + backend)
+npm run dev
 
-### Acceso Inicial
+# Only backend
+npm run backend
+
+# Only frontend
+npm run frontend
+```
+
+## 📱 Application Usage
+
+### Initial Access
 - **URL**: `http://localhost:5173`
-- **Usuario por defecto**: `admin`
-- **Contraseña**: `admin123`
+- **Default user**: `admin`
+- **Password**: `admin123`
 
-### Funcionalidades Principales
+### Main Functionalities
 
 #### Dashboard
-- Estadísticas en tiempo real
-- Próximas citas
-- Resumen de actividad
+- Real-time statistics
+- Upcoming appointments
+- Activity summary
 
-#### Gestión de Pacientes
-- Crear, editar, eliminar pacientes
-- Búsqueda y filtros
-- Historial de citas
+#### Patient Management
+- Create, edit, delete patients
+- Search and filters
+- Appointment history
 
-#### Gestión de Médicos
-- Registro de médicos por especialidad
-- Gestión de licencias médicas
-- Horarios y disponibilidad
+#### Doctor Management
+- Doctor registration by specialty
+- Medical license management
+- Schedules and availability
 
-#### Gestión de Citas
-- Programación de citas
-- Estados: programada, confirmada, en proceso, completada, cancelada
-- Filtros por médico y fecha
+#### Appointment Management
+- Appointment scheduling
+- States: scheduled, confirmed, in progress, completed, cancelled
+- Filters by doctor and date
 
-#### Carga Masiva
-- Subir archivos CSV/Excel
-- Validación automática
-- Reporte de resultados
+#### Bulk Loading
+- Upload CSV files
+- Automatic validation
+- Results report
 
 ## 🔧 API Endpoints
 
-### Autenticación
-- `POST /api/auth/login` - Iniciar sesión
-- `POST /api/auth/logout` - Cerrar sesión
-- `GET /api/auth/me` - Verificar sesión
+### Authentication
+- `POST /api/auth/login` - Login
+- `POST /api/auth/logout` - Logout
+- `GET /api/auth/me` - Verify session
 
-### Pacientes
-- `GET /api/pacientes` - Listar pacientes
-- `POST /api/pacientes` - Crear paciente
-- `PUT /api/pacientes/:id` - Actualizar paciente
-- `DELETE /api/pacientes/:id` - Eliminar paciente
+### Patients
+- `GET /api/pacientes` - List patients
+- `POST /api/pacientes` - Create patient
+- `PUT /api/pacientes/:id` - Update patient
+- `DELETE /api/pacientes/:id` - Delete patient
 
-### Médicos
-- `GET /api/medicos` - Listar médicos
-- `POST /api/medicos` - Crear médico
-- `PUT /api/medicos/:id` - Actualizar médico
-- `DELETE /api/medicos/:id` - Eliminar médico
+### Doctors
+- `GET /api/medicos` - List doctors
+- `POST /api/medicos` - Create doctor
+- `PUT /api/medicos/:id` - Update doctor
+- `DELETE /api/medicos/:id` - Delete doctor
 
-### Citas
-- `GET /api/citas` - Listar citas
-- `POST /api/citas` - Crear cita
-- `PUT /api/citas/:id` - Actualizar cita
-- `DELETE /api/citas/:id` - Eliminar cita
+### Appointments
+- `GET /api/citas` - List appointments
+- `POST /api/citas` - Create appointment
+- `PUT /api/citas/:id` - Update appointment
+- `DELETE /api/citas/:id` - Delete appointment
 
-### Carga de Archivos
-- `POST /api/upload/csv` - Cargar CSV
-- `POST /api/upload/excel` - Cargar Excel
+### File Upload
+- `POST /api/upload/csv` - Upload CSV
 
-## 📊 Consultas Avanzadas
+## 📊 Advanced Queries
 
-### Ejemplos de Consultas SQL
+### SQL Query Examples
 ```sql
--- Citas por médico en un rango de fechas
+-- Appointments by doctor in a date range
 SELECT c.*, p.nombre as paciente_nombre, m.nombre as medico_nombre
 FROM citas c
 JOIN pacientes p ON c.paciente_id = p.id
 JOIN medicos m ON c.medico_id = m.id
 WHERE m.id = $1 AND c.fecha_cita BETWEEN $2 AND $3;
 
--- Pacientes con más de 3 citas
+-- Patients with more than 3 appointments
 SELECT p.*, COUNT(c.id) as total_citas
 FROM pacientes p
 JOIN citas c ON p.id = c.paciente_id
 GROUP BY p.id
 HAVING COUNT(c.id) > 3;
 
--- Ingresos por método de pago
+-- Revenue by payment method
 SELECT mp.nombre, SUM(c.monto) as total_ingresos
 FROM citas c
 JOIN metodos_pago mp ON c.metodo_pago_id = mp.id
@@ -203,58 +188,55 @@ GROUP BY mp.id, mp.nombre;
 
 ## 🧪 Testing
 
-### Pruebas de Funcionalidad
+### Functionality Tests
 ```bash
-# Verificar conexión a base de datos
-npm run db:setup
+# Verify database connection
+npm run test:connection
 
-# Probar endpoints de la API
+# Test API endpoints
 curl http://localhost:4000/api/health
 ```
 
-## 📁 Estructura del Proyecto
+## 📁 Project Structure
 
 ```
 crudclinic/
-├── server/
-│   ├── routes/           # Rutas de la API
-│   ├── middleware/       # Middleware personalizado
-│   ├── models/          # Modelos de datos
-│   ├── controllers/     # Controladores
-│   └── index.js         # Servidor principal
-├── src/
-│   └── app.js           # Lógica del frontend
-├── scripts/
-│   ├── setup-database.js # Configuración de BD
-│   └── seed-data.js     # Datos de prueba
-├── uploads/             # Archivos subidos
-├── public/              # Archivos estáticos
-├── index.html           # Página principal
-├── package.json         # Dependencias
-├── vite.config.js       # Configuración de Vite
-└── README.md           # Documentación
+├── backend/              # Backend application
+│   ├── config/          # Configuration files
+│   ├── routes/          # API routes
+│   ├── scripts/         # Database scripts
+│   ├── uploads/         # Uploaded files
+│   ├── index.js         # Main server file
+│   └── package.json     # Backend dependencies
+├── frontend/            # Frontend application
+│   ├── src/            # Source files
+│   ├── index.html      # Main HTML file
+│   ├── vite.config.js  # Vite configuration
+│   └── package.json    # Frontend dependencies
+├── package.json         # Main project file
+└── README.md           # Documentation
 ```
 
-## 🔒 Seguridad
+## 🔒 Security
 
-### Medidas Implementadas
-- **Validación de entrada** en todos los endpoints
-- **Sanitización de datos** antes de insertar en BD
-- **Control de acceso** basado en roles
-- **Rate limiting** para prevenir ataques
-- **CORS configurado** para desarrollo/producción
-- **Variables de entorno** para datos sensibles
+### Implemented Measures
+- **Input validation** in all endpoints
+- **Data sanitization** before database insertion
+- **Role-based access control**
+- **Rate limiting** to prevent attacks
+- **CORS configured** for development/production
+- **Centralized configuration** without environment variables
 
-## 🚀 Despliegue
+## 🚀 Deployment
 
-### Producción
-1. Configurar variables de entorno para producción
-2. Build del frontend: `npm run build`
-3. Configurar servidor web (nginx/apache)
-4. Configurar PM2 para Node.js
-5. Configurar SSL/TLS
+### Production
+1. Configure production settings
+2. Build frontend: `npm run build`
+3. Configure web server (nginx/apache)
+4. Configure PM2 for Node.js
+5. Configure SSL/TLS
 
-### Docker (Opcional)
+### Docker (Optional)
 ```dockerfile
 FROM node:16-alpine
 WORKDIR /app
@@ -265,30 +247,30 @@ EXPOSE 4000
 CMD ["npm", "start"]
 ```
 
-## 🤝 Contribución
+## 🤝 Contributing
 
-1. Fork el proyecto
-2. Crear rama feature (`git checkout -b feature/AmazingFeature`)
-3. Commit cambios (`git commit -m 'Add AmazingFeature'`)
-4. Push a la rama (`git push origin feature/AmazingFeature`)
-5. Abrir Pull Request
+1. Fork the project
+2. Create feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit changes (`git commit -m 'Add AmazingFeature'`)
+4. Push to branch (`git push origin feature/AmazingFeature`)
+5. Open Pull Request
 
-## 📝 Licencia
+## 📝 License
 
-Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
+This project is under the MIT License. See the `LICENSE` file for more details.
 
-## 👥 Autores
+## 👥 Authors
 
-- **Juan Velez** - Desarrollo inicial
+- **Juan Velez** - Initial development
 
-## 🙏 Agradecimientos
+## 🙏 Acknowledgments
 
-- Bootstrap por el framework CSS
-- Font Awesome por los iconos
-- Vite por las herramientas de desarrollo
-- PostgreSQL por la base de datos
+- Bootstrap for the CSS framework
+- Font Awesome for the icons
+- Vite for development tools
+- PostgreSQL for the database
 
 ---
 
-**🏥 CrudClinic - Agenda Médica Inteligente**  
-*Gestionando la salud del futuro, hoy.*
+**🏥 CrudClinic - Medical Appointment Management System**  
+*Managing the health of the future, today.*

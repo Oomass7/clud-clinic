@@ -1,0 +1,6 @@
+nombre,apellido,email,telefono,fecha_nacimiento,genero,direccion,documento_identidad
+Laura,Martínez,laura.martinez@email.com,3007890123,1988-03-15,F,Calle 45 #67-89, Bogotá,45678901
+Pedro,Sánchez,pedro.sanchez@email.com,3008901234,1995-07-20,M,Carrera 12 #34-56, Medellín,56789012
+Ana,Torres,ana.torres@email.com,3009012345,1991-11-08,F,Avenida 8 #90-12, Cali,67890123
+Luis,Ramírez,luis.ramirez@email.com,3000123456,1987-09-25,M,Calle 78 #12-34, Barranquilla,78901234
+Carmen,Vargas,carmen.vargas@email.com,3001234567,1993-12-03,F,Carrera 56 #78-90, Bucaramanga,89012345
