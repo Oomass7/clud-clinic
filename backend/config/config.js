@@ -2,7 +2,7 @@
 export const config = {
     // Server configuration
     server: {
-        port: 4000,
+        port: 4003,
         corsOrigin: 'http://localhost:5173',
         sessionSecret: 'crudclinic_session_secret_2024',
         jwtSecret: 'crudclinic_jwt_secret_2024',
@@ -12,8 +12,8 @@ export const config = {
     // Database configuration (Supabase)
     database: {
         host: 'aws-0-us-east-2.pooler.supabase.com',
-        user: 'postgres.qhtjyffvcivzxamuqwzc',
-        password: 'aSIeOgnxrJsM7irD',
+        user: 'postgres.cnlzmrelgidzejwoddez',
+        password: 'TThAqaiCOvAeW7Iu',
         database: 'postgres',
         port: 6543,
         ssl: { rejectUnauthorized: false }
